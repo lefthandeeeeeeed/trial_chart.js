@@ -7,6 +7,6 @@
 .graphWrapper {
   display: inline-block;
   width: 35%;
-  padding: 0 25px;
-  height: 75px
+  margin: 0 10px;
+  height: 50px
 }
