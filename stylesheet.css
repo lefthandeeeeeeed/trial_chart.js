@@ -1,0 +1,10 @@
+.graphTitle { 
+  font-size: 15px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.graphWrapper {
+  display: inline-block;
+  width: 48%;
+}
