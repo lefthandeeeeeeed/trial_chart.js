@@ -64,7 +64,9 @@ var drawGraphBar = function(dataBar){
       color: "#5f5f5f",
     },
     ticks: {
-     
+      min: 16,
+      max: 32,
+      stepSize: 4,
       fontSize: 12,
     }
   }]
@@ -141,7 +143,7 @@ window.onload=function () {
     drawGraphLine(dataLine);
 
     var dataBar = [['17/11', '17/12', '18/01', '18/02', '18/03'],
-                [22, 23, 21, 20, 19],
+                [22, 23, 21, 20, 21],
                 [25, 23, 25, 23, 22]]
     drawGraphBar(dataBar);
   
