@@ -5,13 +5,24 @@
   <title>TEST chart</title>
   <script type="text/javascript" src="main.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
+  <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
-	<p>trial bar chart</p>
-    <canvas id="graphBar" width="800px" hight="800px"></canvas>
-	<p>trial line chart</p>
-    <canvas id="graphLine" width="800px" hight="800px"></canvas>
-	<p>trial doughnut chart</p>
-    <canvas id="graphDou" width="800px" hight="800px"></canvas>
-</body>
+	<div class="graphWrapper">
+      <p class="graphTitle">A事業 売上高</p>
+      <canvas id="graphBar"></canvas>
+	</div>
+  	<div class="graphWrapper">
+      <p class="graphTitle">A事業 販売数量</p>
+      <canvas id="graphBar2"></canvas>
+	</div>
+    <div class="graphWrapper">
+      <p class="graphTitle">A事業 販売単価vs原材料費</p>
+      <canvas id="graphLine"></canvas>
+    </div>
+    <div class="graphWrapper">
+      <p class="graphTitle">A事業 顧客別売上構成</p>
+      <canvas id="graphDou"></canvas>
+    </div>
+  </body>
 </html>
