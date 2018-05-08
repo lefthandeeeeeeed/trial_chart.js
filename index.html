@@ -1,28 +1,46 @@
 <!DOCTYPE html>
+<!-- A事業 -->
 <html>
 <head>
   <meta charset="UTF-8">
   <title>TEST chart</title>
-  <script type="text/javascript" src="main.js"></script>
+  <script type="text/javascript" src="main.js">
+  </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
   <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
-	<div class="graphWrapper">
-      <p class="graphTitle">A事業 売上高</p>
-      <canvas id="graphBar"></canvas>
-	</div>
-  	<div class="graphWrapper">
-      <p class="graphTitle">A事業 販売数量</p>
-      <canvas id="graphBar2"></canvas>
-	</div>
-    <div class="graphWrapper">
-      <p class="graphTitle">A事業 販売単価vs原材料費</p>
-      <canvas id="graphLine"></canvas>
-    </div>
-    <div class="graphWrapper">
-      <p class="graphTitle">A事業 顧客別売上構成</p>
-      <canvas id="graphDou"></canvas>
-    </div>
+	<header>
+      <div class="header-title">
+        <a href="#">月次業績</a>
+      </div>
+      <div class="header-right">
+        <a href="#">全社</a>
+        <a href="#">事業別サマリー</a>
+        <a href="#">A事業</a>
+        <a href="#">B事業</a>
+      </div>
+  </header>
+    <div class="contents">
+      <div class="graphWrapper">
+        <p class="graphTitle">A事業 売上高</p>
+        <canvas id="graphBar"></canvas>
+      </div>
+  	  <div class="graphWrapper">
+        <p class="graphTitle">A事業 販売数量</p>
+        <canvas id="graphBar2"></canvas>
+	  </div>
+      <div class="graphWrapper">
+        <p class="graphTitle">A事業 販売単価vs原材料費</p>
+        <canvas id="graphLine"></canvas>
+      </div>
+      <div class="graphWrapper">
+        <p class="graphTitle">A事業 顧客別売上構成</p>
+        <canvas id="graphDou"></canvas>
+      </div>
+     </div>
+    <script>
+      
+    </script>
   </body>
 </html>
