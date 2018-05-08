@@ -53,7 +53,7 @@ var drawGraphBar = function(dataBar){
   // x軸, y軸の設定
   var xAxes = [{ 
     gridLines:{
-      color: "#5f5f5f",
+      color: "#ffffff",
     },
     ticks: {
       fontSize: 12,
@@ -78,7 +78,7 @@ var drawGraphBar = function(dataBar){
     type: 'bar', // グラフの種類（棒グラフを指定）
     data: { labels: label, datasets: [data1, data2]},
     options: option,
-    
+    plugins: [dataLabelPlugin]
   }
   var myChart = new Chart(ctx, config);
 
@@ -100,7 +100,7 @@ var drawGraphBar2 = function(dataBar2){
   // x軸, y軸の設定
   var xAxes = [{ 
     gridLines:{
-      color: "#5f5f5f",
+      color: "#fff",
     },
     ticks: {
       fontSize: 12,
@@ -128,7 +128,6 @@ var drawGraphBar2 = function(dataBar2){
     
   }
   var myChart = new Chart(ctx, config);
-
 };
 
 
@@ -152,3 +151,36 @@ window.onload=function () {
     drawGraphBar2(dataBar2);
 
 };
+
+// Define a plugin to provide data labels
+　Chart.plugins.register({
+			afterDatasetsDraw: function(chart) {
+				var ctx = chart.ctx;
+
+				chart.data.datasets.forEach(function(dataset, i) {
+					var meta = chart.getDatasetMeta(i);
+					if (!meta.hidden) {
+						meta.data.forEach(function(element, index) {
+							// Draw the text in black, with the specified font
+							ctx.fillStyle = 'rgb(0, 0, 0)';
+
+							var fontSize = 16;
+							var fontStyle = 'normal';
+							var fontFamily = 'Helvetica Neue';
+							ctx.font = Chart.helpers.fontString(fontSize, fontStyle, fontFamily);
+
+							// Just naively convert to string for now
+							var dataString = dataset.data[index].toString();
+
+							// Make sure alignment settings are correct
+							ctx.textAlign = 'center';
+							ctx.textBaseline = 'middle';
+
+							var padding = 5;
+							var position = element.tooltipPosition();
+							ctx.fillText(dataString, position.x, position.y - (fontSize / 2) - padding);
+						});
+					}
+				});
+			}
+		});
