@@ -1,3 +1,5 @@
+//copied from Liveweave EBGku6
+
 var drawGraphDou = function(dataDou){
   var ctx = document.getElementById('graphDou').getContext('2d');
   var datas = {
@@ -37,7 +39,7 @@ var drawGraphBar = function(dataBar){
     backgroundColor: "#87cefa",
     borderColor: "#87cefa",
     pointHoverBackgroundColor: "#87cefa",
-    pointHoverBorderColor: "#87cefa",
+    pointHoverBorderColor: "#87cefa"
   };
   // 棒2
   var data2 = {
@@ -46,39 +48,57 @@ var drawGraphBar = function(dataBar){
     backgroundColor: "#4682b4",
     borderColor: "#4682b4",
     pointHoverBackgroundColor: "#4682b4",
-    pointHoverBorderColor: "#4682b4",
-  }
+    pointHoverBorderColor: "#4682b4"
+  };
   // ラベル(横軸)
   var label = dataBar[0];
   // x軸, y軸の設定
-  var xAxes = [{ 
+  /*  var xAxes = [{ 
     gridLines:{
-      color: "#ffffff",
+      color: "#ffffff"
     },
     ticks: {
-      fontSize: 12,
+      fontSize: 12
     }
-  }]
-  var yAxes = [{ 
+  }];
+var yAxes = [{ 
     gridLines:{
-      color: "#5f5f5f",
-    },
+      color: "#5f5f5f"
+      },
     ticks: {
       min: 16,
       max: 32,
       stepSize: 4,
-      fontSize: 12,
+      fontSize: 12
+      }
+  }];
+  */
+  var scales = {xAxes:[{ 
+    gridLines:{
+      color: "#ffffff"
+    },
+    ticks: {
+      fontSize: 12
     }
+  }], yAxes:[{ 
+    gridLines:{
+      color: "#5f5f5f"
+      },
+    ticks: {
+      min: 16,
+      max: 32,
+      stepSize: 4,
+      fontSize: 12
+      }
   }]
-  var scales = {xAxes, yAxes};
+  };
   // グラフ全体の設定
-  var option = {scales};
   // データの設定
   var config = {
     type: 'bar', // グラフの種類（棒グラフを指定）
     data: { labels: label, datasets: [data1, data2]},
-    options: option,
-   }
+    options: scales
+      };
   var myChart = new Chart(ctx, config);
 
 };
@@ -92,62 +112,59 @@ var drawGraphBar2 = function(dataBar2){
     backgroundColor: "#4682b4",
     borderColor: "#4682b4",
     pointHoverBackgroundColor: "#4682b4",
-    pointHoverBorderColor: "#4682b4",
+    pointHoverBorderColor: "#4682b4"
   };
   // ラベル(横軸)
   var label = dataBar2[0];
   // x軸, y軸の設定
   var xAxes = [{ 
     gridLines:{
-      color: "#fff",
+      color: "#fff"
     },
     ticks: {
-      fontSize: 12,
+      fontSize: 12
     }
-  }]
+  }];
   var yAxes = [{ 
     gridLines:{
-      color: "#5f5f5f",
+      color: "#5f5f5f"
     },
     ticks: {
       min: 36,
       max: 48,
       stepSize: 3,
-      fontSize: 12,
+      fontSize: 12
     }
-  }]
-  var scales = {xAxes,yAxes};
+  }];
+  var scales = {xAxes:xAxes, yAxes:yAxes};
   // グラフ全体の設定
-  var option = {scales};
   // データの設定
   var config = {
     type: 'bar', // グラフの種類（棒グラフを指定）
     data: { labels: label, datasets: [data1]},
-    options: option,
-    
-  }
+    options: scales
+      };
   var myChart = new Chart(ctx, config);
 };
 
 
 window.onload=function () {
     var dataDou = [['A社', 'B社', 'その他'],
-                [200, 100, 50]]
+                [200, 100, 50]];
     drawGraphDou(dataDou);
 
     var dataLine = [['17/11', '17/12', '18/01', '18/02', '18/03'],
                 [22, 23, 21, 20, 19],
-                [55, 50, 45, 43, 42]]
+                [55, 50, 45, 43, 42]];
     drawGraphLine(dataLine);
 
     var dataBar = [['17/11', '17/12', '18/01', '18/02', '18/03'],
                 [22, 23, 21, 20, 21],
-                [25, 23, 25, 23, 22]]
+                [25, 23, 25, 23, 22]];
     drawGraphBar(dataBar);
   
     var dataBar2 = [['17/11', '17/12', '18/01', '18/02', '18/03'],
-                [43, 39, 44, 41, 40]]
+                [43, 39, 44, 41, 40]];
     drawGraphBar2(dataBar2);
 
 };
-
