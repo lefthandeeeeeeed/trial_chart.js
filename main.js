@@ -53,7 +53,7 @@ var drawGraphBar = function(dataBar){
   // ラベル(横軸)
   var label = dataBar[0];
   // x軸, y軸の設定
-  /*  var xAxes = [{ 
+  var xAxes = [{ 
     gridLines:{
       color: "#ffffff"
     },
@@ -61,7 +61,7 @@ var drawGraphBar = function(dataBar){
       fontSize: 12
     }
   }];
-var yAxes = [{ 
+  var yAxes = [{ 
     gridLines:{
       color: "#5f5f5f"
       },
@@ -72,32 +72,14 @@ var yAxes = [{
       fontSize: 12
       }
   }];
-  */
-  var scales = {xAxes:[{ 
-    gridLines:{
-      color: "#ffffff"
-    },
-    ticks: {
-      fontSize: 12
-    }
-  }], yAxes:[{ 
-    gridLines:{
-      color: "#5f5f5f"
-      },
-    ticks: {
-      min: 16,
-      max: 32,
-      stepSize: 4,
-      fontSize: 12
-      }
-  }]
-  };
+  var scales = {xAxes, yAxes};
+  var option = {scales};
   // グラフ全体の設定
   // データの設定
   var config = {
     type: 'bar', // グラフの種類（棒グラフを指定）
     data: { labels: label, datasets: [data1, data2]},
-    options: scales
+    options: option
       };
   var myChart = new Chart(ctx, config);
 
